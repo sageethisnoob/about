@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ShadowRealms</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1d1f22;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #222;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Home Section */
+        #home {
+            padding: 50px 0;
+            text-align: center;
+            background-color: #232323;
+            color: white;
+        }
+
+        .home-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 15px #ffcc00;
+        }
+
+        .home-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        /* Minecraft Advancement Style */
+        #discord {
+            padding: 30px 0;
+            background-color: #232323;
+            color: white;
+            text-align: center;
+            position: relative;
+            margin-top: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .advancement-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: slideIn 1.5s ease-out;
+        }
+
+        .advancement-title {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 15px #ffcc00;
+        }
+
+        .advancement-text {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+
+        .advancement-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 25px;
+            background: #7289da;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .advancement-button:hover {
+            background-color: #5a6dbf;
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .discord-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* Keyframes for Slide-In Animation */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* About, Team, Events, and Contact Sections */
+        section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            color: #ffcc00;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 1.2rem;
+            color: #bbb;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #222;
+            color: #bbb;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Snow Effect */
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            background-color: #fff;
+            border-radius: 50%;
+            width: 10px;
+            height: 10px;
+            animation: snow 10s linear infinite;
+        }
+
+        @keyframes snow {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Randomize snowflakes */
+        .snowflake:nth-child(odd) {
+            animation-duration: 12s;
+            animation-delay: 0s;
+            left: 20%;
+            animation-timing-function: ease-in;
+        }
+
+        .snowflake:nth-child(even) {
+            animation-duration: 8s;
+            animation-delay: 3s;
+            left: 60%;
+            animation-timing-function: ease-out;
+        }
+
+        .snowflake:nth-child(3n) {
+            animation-duration: 15s;
+            animation-delay: 2s;
+            left: 80%;
+            animation-timing-function: ease;
+        }
+
+        .snowflake:nth-child(4n) {
+            animation-duration: 10s;
+            animation-delay: 1s;
+            left: 40%;
+            animation-timing-function: ease-in-out;
+        }
+
+        /* Team Section Styles */
+        .team-member {
+            display: inline-block;
+            margin: 30px;
+            text-align: center;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member img:hover {
+            transform: scale(1.1);
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            color: #ffcc00;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            color: #bbb;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Snow Effect -->
+    <div class="snowflakes">
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+        <div class="snowflake"></div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="home-content">
+            <h1>Welcome to ShadowRealms</h1>
+            <p>This is the home of gamers, creators, and dreamers. Explore more about us!</p>
+        </div>
+    </section>
+
+    <!-- Minecraft Advancement Style (Discord Button) -->
+    <section id="discord">
+        <div class="advancement-container">
+            <h2 class="advancement-title">What are you waiting for?</h2>
+            <p class="advancement-text">Join our Discord and become part of the ShadowRealms community!</p>
+            <a href="https://discord.gg/yourdiscordlink" class="advancement-button">
+                <img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord Logo" class="discord-icon">
+                Join our Discord
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="content">
+            <h2>About ShadowRealms</h2>
+            <p>
+                ShadowRealms is not just a community—it's a place where gamers, creators, and dreamers come together to build, play, and grow. Founded by a group of passionate individuals, ShadowRealms offers an immersive gaming experience, blending unique gameplay mechanics, an engaging community, and regular events to keep the action going. Whether you're a casual gamer, a competitive player, or someone who enjoys being part of a thriving community, ShadowRealms is the place to be.
+            </p>
+            <p>
+                Our mission is to provide a high-quality environment where everyone can enjoy a fair, exciting, and fun experience. From our custom Minecraft server to the variety of game modes we offer, there's something for everyone. Whether you're into PvP, cooperative missions, or just want to hang out with friends, we’ve got you covered. Our team is dedicated to improving the server and ensuring that the community remains active, friendly, and welcoming.
+            </p>
+            <p>
+                At ShadowRealms, we believe in the power of community. Our server is built on the foundations of respect, teamwork, and fun. We're always looking for ways to improve the gaming experience and make our server the best it can be. From regular updates and features to special events and giveaways, we're committed to offering our players a gaming experience that keeps them coming back for more.
+            </p>
+            <p>
+                We also pride ourselves on our community-driven development process. The team listens to feedback from our players and works hard to make improvements based on their suggestions. Whether it’s a new game mode, a bug fix, or a new feature, your voice matters. The strength of our server lies in the people who play on it, and we want everyone to feel like they’re part of something special.
+            </p>
+            <p>
+                In addition to our gaming services, we also provide a platform for creators. ShadowRealms supports content creators, streamers, and influencers who are looking to expand their reach and grow their channels. We provide exposure through events, collaborations, and social media shout-outs. Our goal is to create a space where creators can thrive alongside the gaming community.
+            </p>
+            <p>
+                As a growing community, we're always looking to improve and expand. Our vision for the future is to continue building on our success, introduce new and exciting content, and make ShadowRealms a place that everyone can call home. Join us on this journey, and be part of the adventure—because at ShadowRealms, the only limit is your imagination!
+            </p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team">
+        <div class="content">
+            <h2>Our Team</h2>
+            <p>Meet our amazing team of passionate individuals who work tirelessly to bring you the best gaming experience.</p>
+
+            <div class="team-member">
+                <img src="https://cdn.discordapp.com/avatars/1239445755207352330/1bcf51a8365abc2c370abc1e8c99e53e.png?size=1024" alt="WCLOB">
+                <h3>[Founder] WCLOB</h3>
+            </div>
+
+            <div class="team-member">
+                <img src="https://cdn.discordapp.com/avatars/1091006309085741160/d7c1bcbd912db264819ef4f463cb589a.png?size=1024" alt="SageethIsNoob">
+                <h3>[Owner] SageethIsNoob</h3>
+            </div>
+
+            <div class="team-member">
+                <img src="https://cdn.discordapp.com/avatars/1202502898316083211/b3b43dc5448b0c0300fb289198a46c59.png?size=1024" alt="KRHero">
+                <h3>[Head development] KRHero</h3>
+            </div>
+
+            <div class="team-member">
+                <img src="https://cdn.discordapp.com/avatars/816225358801666058/50656a54d0e50215bf25895317b357e9.png?size=1024" alt="Loyalmap">
+                <h3>[Developer] Loyalmap</h3>
+            </div>
+
+            <div class="team-member">
+                <img src="https://cdn.discordapp.com/avatars/1127290718860361878/7ad61cea15f3f9b77eec84e19dd46e32.png?size=1024" alt="SWLOB">
+                <h3>[Developer] SWLOB</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="content">
+            <h2>Upcoming Events</h2>
+            <p>Stay tuned for our upcoming events and tournaments! Don't miss out!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us!</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 ShadowRealms. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
