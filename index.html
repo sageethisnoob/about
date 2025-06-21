@@ -1,639 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>хᴇᴀᴏ ᴄʟᴀɴ</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1d1f22;
-            color: white;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: #222;
-            padding: 20px;
-            text-align: center;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: #ffcc00;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
-        /* Home Section */
-        #home {
-            padding: 50px 0;
-            text-align: center;
-            background-color: #232323;
-            color: white;
-        }
-
-        .home-content h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00;
-        }
-
-        .home-content p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #bbb;
-        }
-
-        /* Minecraft Advancement Style */
-        #discord {
-            padding: 30px 0;
-            background-color: #232323;
-            color: white;
-            text-align: center;
-            position: relative;
-            margin-top: 0px; /* Reduced gap */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Contact Section */
-#contact {
-    background-color: #232323;
-    color: white;
-    padding: 50px 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-#contact .content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#contact h2 {
-    font-size: 2.5rem;
-    color: #ffcc00;
-    margin-bottom: 20px;
-    text-shadow: 0 0 15px #ffcc00;
-}
-
-#contact form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-#contact-form input,
-#contact-form select {
-    width: 100%;
-    max-width: 400px;
-    padding: 12px;
-    border: 2px solid #ffcc00;
-    border-radius: 5px;
-    background-color: #1d1f22;
-    color: white;
-    font-size: 1rem;
-}
-
-#contact-form input::placeholder,
-#contact-form select::placeholder {
-    color: #bbb;
-}
-
-#contact-form select {
-    cursor: pointer;
-}
-
-#contact-form input:focus,
-#contact-form select:focus {
-    outline: none;
-    border-color: #fff;
-    box-shadow: 0 0 10px #ffcc00;
-}
-
-#confirm-btn {
-    padding: 10px 20px;
-    background-color: #7289da;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#confirm-btn:hover {
-    background-color: #5a6dbf;
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-#user-info {
-    margin-top: 20px;
-    color: #bbb;
-    font-size: 1rem;
-}
-
-
-        .advancement-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #2e2e2e;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            animation: slideIn 1.5s ease-out;
-        }
-
-        .advancement-title {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #ffcc00;
-            text-shadow: 0 0 15px #ffcc00;
-        }
-
-        .advancement-text {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #bbb;
-        }
-
-        .advancement-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 25px;
-            background: #7289da;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .advancement-button:hover {
-            background-color: #5a6dbf;
-            transform: scale(1.1);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-        }
-
-        .discord-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 10px;
-        }
-
-        /* Keyframes for Slide-In Animation */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* About, Team, Events, and Contact Sections */
-        section {
-            padding: 50px 20px;
-            text-align: center;
-        }
-
-        section h2 {
-            font-size: 2.5rem;
-            color: #ffcc00;
-            margin-bottom: 15px;
-        }
-
-        section p {
-            font-size: 1.2rem;
-            color: #bbb;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            background-color: #222;
-            color: #bbb;
-            padding: 20px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-
-        /* Snow Effect */
-        .snowflakes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .snowflake {
-            position: absolute;
-            top: -10px;
-            background-color: #fff;
-            border-radius: 50%;
-            width: 10px;
-            height: 10px;
-            animation: snow 10s linear infinite;
-        }
-
-        @keyframes snow {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        /* Randomize snowflakes */
-        .snowflake:nth-child(odd) {
-            animation-duration: 12s;
-            animation-delay: 0s;
-            left: 20%;
-            animation-timing-function: ease-in;
-        }
-
-        .snowflake:nth-child(even) {
-            animation-duration: 8s;
-            animation-delay: 3s;
-            left: 60%;
-            animation-timing-function: ease-out;
-        }
-
-        .snowflake:nth-child(3n) {
-            animation-duration: 15s;
-            animation-delay: 2s;
-            left: 80%;
-            animation-timing-function: ease;
-        }
-
-        .snowflake:nth-child(4n) {
-            animation-duration: 10s;
-            animation-delay: 1s;
-            left: 40%;
-            animation-timing-function: ease-in-out;
-        }
-
-        /* Team Section Styles */
-        .team-member {
-            display: inline-block;
-            margin: 30px;
-            text-align: center;
-        }
-
-        .team-member img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .team-member img:hover {
-            transform: scale(1.1);
-        }
-
-        .team-member h3 {
-            font-size: 1.5rem;
-            margin-top: 10px;
-            color: #ffcc00;
-        }
-
-        .team-member p {
-            font-size: 1rem;
-            color: #bbb;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>SageethIsNoob | Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Outfit', sans-serif;
+      background: linear-gradient(to bottom, #ff0000, #000000);
+      color: #ffffff;
+      cursor: url('http://www.rw-designer.com/cursor-extern.php?id=165364'), auto;
+    }
+    .container {
+      max-width: 720px;
+      margin: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+    }
+    .profile {
+      text-align: center;
+    }
+    .profile img {
+      border-radius: 50%;
+      width: 128px;
+      height: 128px;
+      border: 3px solid #ff3c3c;
+    }
+    .profile h1 {
+      font-size: 2em;
+      margin: 15px 0 5px;
+    }
+    .profile p {
+      font-size: 1em;
+      color: #ccc;
+    }
+    .section {
+      margin-top: 30px;
+    }
+    .section h2 {
+      font-size: 1.4em;
+      color: #ff5252;
+      border-bottom: 2px solid #ff3c3c;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+    .game-box {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      border-left: 6px solid #ff3c3c;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+    .game-box img {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      margin-right: 15px;
+    }
+    .game-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .game-info strong {
+      font-size: 1.1em;
+      color: #fff;
+    }
+    .game-info span {
+      font-size: 0.9em;
+      color: #999;
+    }
+    .contact p {
+      margin: 8px 0;
+    }
+    .contact a {
+      color: #ff7676;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.8em;
+      color: #777;
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Snow Effect -->
-    <div class="snowflakes">
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
-        <div class="snowflake"></div>
+  <div class="container">
+    <div class="profile">
+      <img src="https://images-ext-1.discordapp.net/external/ld7QXunfP-dHjnF60Ew2bBJvKnHldMRbZNW3IorfvdU/%3Fsize%3D256/https/cdn.discordapp.com/avatars/1091006309085741160/446bd479424ba79f51c65035fd7e9c46.png?format=webp&quality=lossless&width=192&height=192" alt="Profile Picture">
+      <h1>SageethIsNoob</h1>
+      <p>A small developer</p>
     </div>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="home-content">
-            <h1>Welcome to Xeao</h1>
-            <p>This is the home of gamers, creators, and dreamers. Explore more about us!</p>
-        </div>
-    </section>
+    <div class="section">
+      <h2>Games</h2>
 
-    <!-- Minecraft Advancement Style (Discord Button) -->
-    <section id="discord">
-        <div class="advancement-container">
-            <h2 class="advancement-title">What are you waiting for?</h2>
-            <p class="advancement-text">Join our Discord and become part of the Xeao community!</p>
-            <a href="https://discord.gg/yourdiscordlink" class="advancement-button">
-                <img src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Discord Logo" class="discord-icon">
-                Join our Discord
-            </a>
+      <div class="game-box">
+        <img src="https://cdn2.steamgriddb.com/icon_thumb/0a17ad0fa0870b05f172deeb05efef8e.png" alt="Minecraft">
+        <div class="game-info">
+          <strong>Minecraft</strong>
+          <span>Since 2020</span>
         </div>
-    </section>
+      </div>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="content">
-            <h2>About Xeao</h2>
-            <p>
-                Xeao is not just a community—it's a place where gamers, creators, and dreamers come together to build, play, and grow. Founded by a group of passionate individuals, Xeao offers an immersive gaming experience, blending unique gameplay mechanics, an engaging community, and regular events to keep the action going. Whether you're a casual gamer, a competitive player, or someone who enjoys being part of a thriving community, Xeao is the place to be.
-            </p>
-            <p>
-                Our mission is to provide a high-quality environment where everyone can enjoy a fair, exciting, and fun experience. From our custom Minecraft server to the variety of game modes we offer, there's something for everyone. Whether you're into PvP, cooperative missions, or just want to hang out with friends, we’ve got you covered. Our team is dedicated to improving the server and ensuring that the community remains active, friendly, and welcoming.
-            </p>
-            <p>
-                At Xeao, we believe in the power of community. Our server is built on the foundations of respect, teamwork, and fun. We're always looking for ways to improve the gaming experience and make our server the best it can be. From regular updates and features to special events and giveaways, we're committed to offering our players a gaming experience that keeps them coming back for more.
-            </p>
-            <p>
-                We also pride ourselves on our community-driven development process. The team listens to feedback from our players and works hard to make improvements based on their suggestions. Whether it’s a new game mode, a bug fix, or a new feature, your voice matters. The strength of our server lies in the people who play on it, and we want everyone to feel like they’re part of something special.
-            </p>
-            <p>
-                In addition to our gaming services, we also provide a platform for creators. Xeao supports content creators, streamers, and influencers who are looking to expand their reach and grow their channels. We provide exposure through events, collaborations, and social media shout-outs. Our goal is to create a space where creators can thrive alongside the gaming community.
-            </p>
-            <p>
-                As a growing community, we're always looking to improve and expand. Our vision for the future is to continue building on our success, introduce new and exciting content, and make Xeao a place that everyone can call home. Join us on this journey, and be part of the adventure—because at Xeao, the only limit is your imagination!
-            </p>
+      <div class="game-box">
+        <img src="https://i.ytimg.com/vi/98Bc1f6McFc/maxresdefault.jpg" alt="Combat Master">
+        <div class="game-info">
+          <strong>Combat Master</strong>
+          <span>Since 2023</span>
         </div>
-    </section>
+      </div>
 
-    <!-- Team Section -->
-    <section id="team">
-        <h2>Main Staff Team</h2>
-        <p>Meet our amazing staff team keeping the server clean and smooth!</p>
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1239445755207352330/6d7b9577cf824fc380fc1a4f4b75040a.png?size=1024" alt="𒋝 sᴀxᴛᴏʀ𝚇">
-            <h3>[Founder] 𒋝 sᴀxᴛᴏʀ𝚇</h3>
+      <div class="game-box">
+        <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSqwX4zZQ6qjfLsS1-d03Z_eu26hTENmGn1W6lwm160LzmvgBILz56YZtCynbrxjX10yO0EZA" alt="One Armed Robber">
+        <div class="game-info">
+          <strong>One Armed Robber</strong>
+          <span>Since 2023</span>
         </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1091006309085741160/35ea2244c794159e3c460a54d19740a0.png?size=1024" alt="SageethIsNoob">
-            <h3>[Co-Founder] SageethIsNoob</h3>
-        </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1299322999337648191/1a42a6f1f886d72d3277d47ce3718142.png?size=1024" alt="Speaker">
-            <h3>[Co-Owner] Speaker</h3>
-        </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1294683010041380956/f7a2ce84348ae8d4d78d03446c6cc3e8.png?size=1024" alt="! 𝔹𝕃𝟜ℂ𝕂 𝕎𝕀ℤ𝟜ℝ𝔻 ツ">
-            <h3>[Head-Admin] ! 𝔹𝕃𝟜ℂ𝕂 𝕎𝕀ℤ𝟜ℝ𝔻 ツ</h3>
-        </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/816225358801666058/50656a54d0e50215bf25895317b357e9.png?size=1024" alt="Loyalmap">
-            <h3>[Head-Staff] Loyalmap</h3>
-        </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1214926657257865256/f6b93899def7c8f400e5dc3b376f3a82.png?size=1024" alt="!MR GAVE.">
-            <h3>[Moderator] !MR GAVE.</h3>
-        </div>
-
-        <div class="team-member">
-            <img src="https://cdn.discordapp.com/avatars/1188676902328737894/416144381fcfd922855518ce0e541477.png?size=1024" alt="GGGamingX">
-            <h3>[Moderator] GGGamingX</h3>
-        </div>
-
-    </section>
-
-   
-<!-- Events Section -->
-<section id="events">
-    <div class="content">
-        <h2>Events</h2>
-        <p>Stay tuned for our events and tournaments! Don't miss out!</p>
-        <div class="event-details">
-            <h3>Counting Event</h3>
-            <p><strong>Goal:</strong> Reach 1000 counts!</p>
-            <p><strong>Started on:</strong> February 1st, 2025</p>
-            <p><strong>Location:</strong> <a href="https://dsc.gg/xeao" target="_blank">https://dsc.gg/xeao</a></p>
-            <p><strong>Channel:</strong> ├ᛝ･🍷：ᴄᴏᴜɴᴛɪɴɢ</p>
-            <p><strong>Rewards:</strong></p>
-            <ul>
-                <li>400,000 owo cash 💰</li>
-                <li>King Role for 1 month 👑</li>
-                <li>Featured on this website as the winner! 🌐</li>
-            </ul>
-        </div>
+      </div>
     </div>
-</section>
 
+    <div class="section contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:SageethIsNoob@gmail.com">SageethIsNoob@gmail.com</a></p>
+      <p>Discord ID: <code>SageethIsNoob</code></p>
+      <p>Open @ <a href="https://dsc.gg/elementrixmc" target="_blank">elementrix</a></p>
+    </div>
 
-
-      <!-- Contact Section -->
-      <section id="contact">
-        <div class="content">
-            <h2>Contact Us</h2>
-            <form id="contact-form">
-                <input type="text" id="username" name="username" placeholder="Discord Username" required><br>
-                <input type="text" id="country" name="country" placeholder="Country" required><br>
-                <input type="email" id="email" name="email" placeholder="Email" required><br>
-                
-                <!-- Fixed Message Box (Now Bigger) -->
-                <textarea id="message" name="message" placeholder="Message" required></textarea><br>
-                
-                <select id="staff-member" required>
-                    <option value="" disabled selected>Please choose a staff member</option>
-                    <option value="𒋝 sᴀxᴛᴏʀ𝚇">𒋝 sᴀxᴛᴏʀ𝚇</option>
-                    <option value="SageethIsNoob">SageethIsNoob</option>
-                    <option value="Speaker">Speaker</option>
-                    <option value="! 𝔹𝕃𝟜ℂ𝕂 𝕎𝕀ℤ𝟜ℝ𝔻 ツ">! 𝔹𝕃𝟜ℂ𝕂 𝕎𝕀ℤ𝟜ℝ𝔻 ツ</option>
-                    <option value="Loyalmap">Loyalmap</option>
-                    <option value="!MR GAVE.">!MR GAVE.</option>
-                    <option value="GGGamingX">GGGamingX</option>
-                </select><br>
-                <button type="submit" id="confirm-btn">Confirm</button>
-            </form>
-            <p id="user-info"></p>
-        </div>
-    </section>
-    
-    <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Prevent form from refreshing the page
-    
-        // Get form values
-        const username = document.getElementById("username").value;
-        const country = document.getElementById("country").value;
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-        const staffMember = document.getElementById("staff-member").value;
-    
-        // Webhook URL
-        const webhookURL = "https://discord.com/api/webhooks/1332780879050969250/0x7eQAnapQqYfqDuzCvoqI1vKO_NBrZfGLpmrL5B0S3na7lNCxdzCWjEeP2NiHPDhVwG";
-    
-        // Create the payload (Discord format)
-        const payload = {
-            "content": `**New Contact Form Submission:**\n\n👤 **Username:** ${username}\n🌍 **Country:** ${country}\n📧 **Email:** ${email}\n💬 **Message:** ${message}\n🎯 **Staff Member:** ${staffMember}`
-        };
-    
-        // Send data to Discord Webhook
-        fetch(webhookURL, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload)
-        }).then(response => {
-            if (response.ok) {
-                alert("Form submitted successfully! ✅");
-                document.getElementById("contact-form").reset(); // Clear form
-            } else {
-                alert("Failed to send message. ❌");
-            }
-        }).catch(error => {
-            console.error("Error:", error);
-            alert("Error sending message. ❌");
-        });
-    });
-    </script>
-    
-    <style>
-    /* Contact Section */
-    #contact {
-        padding: 50px 20px;
-        text-align: center;
-    }
-    
-    #contact .content {
-        max-width: 600px;
-        margin: 0 auto;
-        background-color: #2e2e2e;
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        overflow-y: auto;
-        max-height: 510px; /* Increased scroll height */
-    }
-    
-    /* Fixed Message Box */
-    #message {
-        width: 100%;
-        height: 150px; /* Bigger message box */
-        padding: 10px;
-        font-size: 1rem;
-        background-color: #333;
-        border: 1px solid #555;
-        color: white;
-        border-radius: 5px;
-        resize: vertical;
-    }
-
-    #message {
-    width: 100%;
-    height: 150px; /* Bigger size */
-    padding: 10px;
-    font-size: 1rem;
-    background-color: #222; /* Matches input field */
-    border: 2px solid #ffcc00; /* Same border as input */
-    color: white;
-    border-radius: 5px;
-    resize: vertical;
-    outline: none; /* Removes default browser outline */
-}
-
-#message:focus {
-    border-color: #ffaa00; /* Slightly brighter border on focus */
-    box-shadow: 0 0 5px #ffaa00; /* Glow effect */
-}
-    
-    /* Scrollbar */
-    #contact .content::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    #contact .content::-webkit-scrollbar-track {
-        background: #222;
-        border-radius: 10px;
-    }
-    
-    #contact .content::-webkit-scrollbar-thumb {
-        background: #555;
-        border-radius: 10px;
-    }
-    
-    #contact .content::-webkit-scrollbar-thumb:hover {
-        background: #777;
-    }
-    
-    /* Button */
-    #confirm-btn {
-        padding: 12px;
-        background-color: #7289da;
-        color: white;
-        font-weight: bold;
-        font-size: 1.1rem;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        border: none;
-    }
-    
-    #confirm-btn:hover {
-        background-color: #5a6dbf;
-        transform: scale(1.05);
-    }
-    </style>
-    
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Xeao. All rights reserved.</p>
-    </footer>
+    <div class="footer">
+      Cursor by <a href="http://www.rw-designer.com/cursor-set/dim-v4-prismatic-premium-bonus" target="_blank">RW-Designer</a>
+    </div>
+  </div>
 </body>
-
 </html>
